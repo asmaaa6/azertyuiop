@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Consultez et gérez votre panier d'achat" />
+  <title>Mon Panier | Boutique en ligne</title>
+  <link rel="stylesheet" href="panierclaude.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+  <style>
+    
+    /* Panier flottant */
+    .panier-flottant {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+      background-color: white;
+      border-radius: var(--rayon-bordure);
+      box-shadow: var(--ombre-box);
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .panier-flottant a {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      text-decoration: none;
+      color: var(--couleur-texte);
+      font-weight: 500;
+    }
+
+    .panier-flottant i {
+      font-size: 1.2rem;
+      color: var(--couleur-primaire);
+    }
+
+    .conteneur-principal {
+      margin-top: 4rem;
+    }
+
+    .conteneur-principal > section:first-of-type {
+      margin-top: 0;
+    }
+
+    /* Pied de page selon le style demandé */
+    .pied-page {
+      background-color: #222;
+      color: #eee;
+      padding: 60px 0;
+      text-align: center;
+      font-size: 0.9em;
+    }
+
+    .copyright {
+      margin-bottom: 10px;
+    }
+
+    .réseaux-sociaux {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .réseau-soc {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-color: #444;
+      color: #eee;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      text-decoration: none;
+      font-size: 1.2em;
+      transition: background-color 0.3s ease;
+    }
+
+    .réseau-soc:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Panier flottant -->
+  <div class="panier-flottant">
+    <a href="panier.html" class="bouton-panier">
+      <i class="fas fa-shopping-cart"></i>
+      <span id="compteur-panier" aria-label="Nombre d'articles dans votre panier">0</span>
+    </a>
+  </div>
+
+  <main class="conteneur-principal">
+    <section id="zone-message" class="zone-message" aria-live="polite"></section>
+
+    <section class="conteneur-panier">
+      <div class="table-responsive">
+        <table class="table-panier" aria-label="Votre panier d'achat">
+          <thead>
+            <tr>
+              <th scope="col">Produit</th>
+              <th scope="col">Prix unitaire</th>
+              <th scope="col">Quantité</th>
+              <th scope="col">Total</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="liste-articles">
+            <!-- Articles injectés dynamiquement -->
+          </tbody>
+          <tfoot id="panier-total">
+            <tr>
+              <td colspan="3" class="text-right">Sous-total:</td>
+              <td id="sous-total" class="prix-total">0,00 €</td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="3" class="text-right">Frais de livraison:</td>
+              <td id="frais-livraison" class="prix-total">0,00 €</td>
+              <td></td>
+            </tr>
+            <tr class="ligne-total">
+              <td colspan="3" class="text-right"><strong>Total:</strong></td>
+              <td id="total-panier" class="prix-total"><strong>0,00 €</strong></td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+
+      
+
+      <div class="zone-actions">
+        <button class="bouton bouton-rouge" onclick="viderPanier()" aria-label="Vider le panier">
+          <i class="fas fa-trash-alt"></i> Vider le panier
+        </button>
+
+        
+        <a href="valider.html" class="bouton bouton-vert" id="btn-commander">
+          <i class="fas fa-check"></i> Passer la commande
+        </a>
+      </div>
+    </section>
+
+    <section class="panier-vide" id="panier-vide" style="display: none;">
+      <div class="message-panier-vide">
+        <i class="fas fa-shopping-cart fa-4x"></i>
+        <h2>Votre panier est vide</h2>
+        <p>Explorez notre catalogue pour découvrir nos produits.</p>
+        <a href="catalogue.html" class="bouton bouton-primaire">Découvrir nos produits</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- Pied de page selon ton style -->
+  <footer class="pied-page">
+    <div class="copyright">
+      &copy;copyright 2020 yolodeco.
+    </div>
+    <div class="réseaux-sociaux">
+      <a href="#" class="réseau-soc" title="Twitter">t</a>
+      <a href="#" class="réseau-soc" title="Facebook">f</a>
+      <a href="#" class="réseau-soc" title="LinkedIn">in</a>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div id="modal-confirmation" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h3>Confirmation</h3>
+      <p>Êtes-vous sûr de vouloir vider votre panier ?</p>
+      <div class="modal-actions">
+        <button class="bouton bouton-secondaire" onclick="fermerModal()">Annuler</button>
+        <button class="bouton bouton-rouge" onclick="confirmerViderPanier()">Vider le panier</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const compteur = localStorage.getItem('panierCount') || 0;
+      document.getElementById('compteur-panier').textContent = compteur;
+    });
+  
+
+
+  </script>
+  
+</body>
+</html>

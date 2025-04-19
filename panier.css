@@ -1,0 +1,144 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background-color: #f4f4f9;
+    color: #333;
+  
+  }
+  
+  .en-tete {
+    background-color: #ffffff;
+    border-bottom: 1px solid #ddd;
+    padding: 20px 0;
+  }
+  
+  .conteneur-entete {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   
+  }
+  
+  .lien-panier {
+    text-decoration: none;
+    font-size: 1.3em;
+    color: #2c3e50;
+  }
+  
+  .conteneur-principal {
+    width: 90%;
+    max-width: 1000px;
+    margin: 30px auto;
+  }
+  
+  .zone-message {
+    text-align: center;
+    font-weight: bold;
+    color: #27ae60;
+    margin-bottom: 15px;
+    transition: opacity 0.4s ease-in-out;
+  }
+  
+  .conteneur-panier {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  }
+  
+  .table-panier {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .table-panier th,
+  .table-panier td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+  }
+  
+  input[type="number"] {
+    width: 60px;
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .bouton {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .bouton-rouge {
+    background-color: #e74c3c;
+    color: white;
+  }
+  
+  .bouton-rouge:hover {
+    background-color: #c0392b;
+  }
+  
+  .bouton-vert {
+    background-color: #27ae60;
+    color: white;
+  }
+  
+  .bouton-vert:hover {
+    background-color: #1e8449;
+  }
+  
+
+  
+  .pied-page {
+    background-color: #222; 
+    color: #eee; 
+    padding: 60px 0;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+
+.copyright {
+    margin-bottom: 10px;
+}
+
+
+.réseaux-sociaux {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+
+.réseau-soc {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-color: #444; 
+    color: #eee;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease;
+}
+
+.réseau-soc:hover {
+    background-color: #555;
+}
+
+
+
+
