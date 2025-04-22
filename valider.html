@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Validation de la commande</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f6f6f6;
+      color: #333;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 20px;
+      color: #2c3e50;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .ligne-formulaire {
+      display: flex;
+      gap: 30px; /* ESPACE ENTRE LES CHAMPS */
+      margin-bottom: 20px;
+    }
+
+    .champ {
+      flex: 1;
+    }
+
+    .zone-total {
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-top: 25px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .ligne-total {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .total-final {
+      margin-top: 15px;
+      font-size: 18px;
+      font-weight: bold;
+      color: #2c3e50;
+    }
+
+    .bouton-validation {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 20px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      text-decoration: none;
+      text-align: center;
+      transition: background-color 0.3s;
+    }
+
+    .bouton-validation:hover {
+      background-color: #2c80b4;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Validation de la commande</h1>
+
+  <form action="#" method="post">
+    <div class="ligne-formulaire">
+      <div class="champ">
+        <label for="adresse">Adresse :</label>
+        <input type="text" id="adresse" name="adresse">
+      </div>
+      <div class="champ">
+        <label for="ville">Ville :</label>
+        <input type="text" id="ville" name="ville">
+      </div>
+    </div>
+
+    <div class="ligne-formulaire">
+      <div class="champ">
+        <label for="email">Adresse e-mail :</label>
+        <input type="text" id="email" name="email">
+      </div>
+      <div class="champ">
+        <label for="pays">Pays :</label>
+        <input type="text" id="pays" name="pays">
+      </div>
+    </div>
+
+    <div class="champ">
+      <label for="carte">Code postal ou numéro de carte :</label>
+      <input type="text" id="carte" name="carte">
+    </div>
+
+    <section class="zone-total">
+      <div class="ligne-total">
+        <span>Produits :</span>
+        <span>0 €</span>
+      </div>
+      <div class="ligne-total">
+        <span>Livraison :</span>
+        <span>5 €</span>
+      </div>
+      <div class="ligne-total total-final">
+        <span>Total à payer :</span>
+        <span>5 €</span>
+      </div>
+    </section>
+
+    <a href="succescommande.html" class="bouton-validation">Valider et Payer</a>
+  </form>
+
+</body>
+</html>
